@@ -161,16 +161,15 @@ public class WebSocketProxyTest
         client.connect(clientSocket, proxyUri);
         assertTrue(clientSocket.openLatch.await(5, TimeUnit.SECONDS));
 
-        // TODO: Why is this server error when it is occurring on the client.
         // Verify expected client close.
         assertTrue(clientSocket.closeLatch.await(5, TimeUnit.SECONDS));
-        assertThat(clientSocket.closeCode, is(StatusCode.SERVER_ERROR));
+        assertThat(clientSocket.closeCode, is(StatusCode.POLICY_VIOLATION));
         assertThat(clientSocket.closeReason, containsString("simulated onOpen err"));
         assertNotNull(clientSocket.error);
 
         // Verify expected server close.
         assertTrue(serverSocket.closeLatch.await(5, TimeUnit.SECONDS));
-        assertThat(serverSocket.closeCode, is(StatusCode.SERVER_ERROR));
+        assertThat(serverSocket.closeCode, is(StatusCode.POLICY_VIOLATION));
         assertThat(serverSocket.closeReason, containsString("simulated onOpen err"));
         assertNull(serverSocket.error);
 
