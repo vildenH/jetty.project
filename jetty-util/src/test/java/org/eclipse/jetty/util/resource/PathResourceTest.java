@@ -39,9 +39,28 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.nullValue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PathResourceTest
 {
+    // TODO: Remove before merging to jetty-9.4.x
+    @Test
+    public void exampleTestThatFails()
+    {
+        System.out.println("This is some STDOUT output from the exampleTestThatFails()");
+        System.err.println("Also some STDERR output from the exampleTestThatFails()");
+        throw new RuntimeException("Always fails");
+    }
+
+    // TODO: Remove before merging to jetty-9.4.x
+    @Test
+    public void exampleTestThatHasBadAssert()
+    {
+        System.out.println("This is some STDOUT output from the exampleTestThatHasBadAssert()");
+        System.err.println("And some STDERR output from the exampleTestThatHasBadAssert()");
+        assertEquals(5, 6, "Always fails assertion");
+    }
+
     @Test
     public void testNonDefaultFileSystemGetInputStream() throws URISyntaxException, IOException
     {
