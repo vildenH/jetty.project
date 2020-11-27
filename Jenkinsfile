@@ -31,7 +31,7 @@ pipeline {
                        execPattern: '**/target/jacoco.exec',
                        classPattern: '**/target/classes',
                        sourcePattern: '**/src/main/java'
-                recordIssues id: "jdk8", aggregatingResults: true, enabledForFailure: true, tools: [mavenConsole(), java(), checkStyle(), spotBugs(), pmdParser()]
+                recordIssues id: "jdk8", name: "Static Analysis jdk8", aggregatingResults: true, enabledForFailure: true, tools: [mavenConsole(), java(), checkStyle(), spotBugs(), pmdParser()]
               }
             }
           }
@@ -43,7 +43,7 @@ pipeline {
             container( 'jetty-build' ) {
               timeout( time: 240, unit: 'MINUTES' ) {
                 mavenBuild( "jdk11", "clean install -T3 -Djacoco.skip=true -Perrorprone -Premote-session-tests -Pgcloud", "maven3")
-                recordIssues id: "jdk11", aggregatingResults: true, enabledForFailure: true, tools: [mavenConsole(), java(), checkStyle(), spotBugs(), pmdParser()]
+                recordIssues id: "jdk11", name: "Static Analysis jdk11", aggregatingResults: true, enabledForFailure: true, tools: [mavenConsole(), java(), checkStyle(), spotBugs(), pmdParser()]
               }
             }
           }
@@ -55,7 +55,7 @@ pipeline {
             container( 'jetty-build' ) {
               timeout( time: 240, unit: 'MINUTES' ) {
                 mavenBuild( "jdk15", "clean install -T3 -Djacoco.skip=true -Premote-session-tests -Pgcloud", "maven3")
-                recordIssues id: "jdk15", aggregatingResults: true, enabledForFailure: true, tools: [mavenConsole(), java(), checkStyle(), spotBugs(), pmdParser()]
+                recordIssues id: "jdk15", name: "Static Analysis jdk15", aggregatingResults: true, enabledForFailure: true, tools: [mavenConsole(), java(), checkStyle(), spotBugs(), pmdParser()]
               }
             }
           }
