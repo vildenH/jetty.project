@@ -30,6 +30,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -511,7 +512,7 @@ public class HTTP2Test extends AbstractTest
             }
         });
         assertTrue(exchangeLatch4.await(5, TimeUnit.SECONDS));
-        assertEquals(1, session.getStreams().size());
+        assertEquals(1, session.getStreams().size(), () -> "Streams: " + session.getStreams().stream().map(Stream::toString).collect(Collectors.joining(", ")));
 
         // End the first stream.
         stream1.data(new DataFrame(stream1.getId(), BufferUtil.EMPTY_BUFFER, true), new Callback()
