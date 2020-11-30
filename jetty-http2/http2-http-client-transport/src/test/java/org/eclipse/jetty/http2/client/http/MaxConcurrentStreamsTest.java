@@ -337,9 +337,9 @@ public class MaxConcurrentStreamsTest extends AbstractTest
             }
         });
 
-        int parallelism = 4;
+        int parallelism = 16;//4;
         int runs = 1;
-        int iterations = 32;
+        int iterations = 256;//32;
 
         client.setMaxConnectionsPerDestination(32768);
         client.setMaxRequestsQueuedPerDestination(1024 * 1024);
