@@ -7,7 +7,7 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>javadoc</artifactId>
+  <artifactId>jetty-javadoc</artifactId>
   <name>Jetty :: Javadoc Build</name>
   <packaging>jar</packaging>
 
@@ -39,14 +39,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
-      </plugin>
-      <!-- No point performing Deploying the javadoc project -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
         <configuration>
           <skip>true</skip>
         </configuration>
@@ -149,7 +141,7 @@
             <id>build-javadoc</id>
             <phase>prepare-package</phase>
             <goals>
-              <goal>javadoc</goal>
+              <goal>jar</goal>
             </goals>
             <configuration>
               <doctitle>Eclipse Jetty API Doc - v${project.version}</doctitle>

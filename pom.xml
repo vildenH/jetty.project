@@ -1338,7 +1338,7 @@
     <profile>
       <id>eclipse-release</id>
       <modules>
-        <module>javadoc</module>
+        <module>jetty-javadoc</module>
       </modules>
       <build>
         <plugins>
@@ -1405,7 +1405,7 @@
         <surefire.rerunFailingTestsCount>0</surefire.rerunFailingTestsCount>
       </properties>
       <modules>
-        <module>javadoc</module>
+        <module>jetty-javadoc</module>
       </modules>
       <build>
         <pluginManagement>
