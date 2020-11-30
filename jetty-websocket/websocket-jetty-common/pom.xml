@@ -53,7 +53,7 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.jetty.websocket</groupId>
-      <artifactId>websocket-core-common</artifactId>
+      <artifactId>websocket-util</artifactId>
       <version>${project.version}</version>
     </dependency>
   </dependencies>

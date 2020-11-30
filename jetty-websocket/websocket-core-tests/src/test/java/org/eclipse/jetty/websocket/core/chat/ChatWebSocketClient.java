@@ -30,7 +30,7 @@ import java.util.regex.Pattern;
 import org.eclipse.jetty.util.Callback;
 import org.eclipse.jetty.websocket.core.client.CoreClientUpgradeRequest;
 import org.eclipse.jetty.websocket.core.client.WebSocketCoreClient;
-import org.eclipse.jetty.websocket.core.internal.MessageHandler;
+import org.eclipse.jetty.websocket.core.tests.MessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

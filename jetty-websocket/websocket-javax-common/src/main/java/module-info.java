@@ -24,6 +24,7 @@ module org.eclipse.jetty.websocket.javax.common
     exports org.eclipse.jetty.websocket.javax.common.messages;
 
     requires org.slf4j;
+    requires org.eclipse.jetty.websocket.util;
     requires transitive jetty.websocket.api;
     requires transitive org.eclipse.jetty.websocket.core.client;
 }
