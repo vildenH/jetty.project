@@ -362,7 +362,7 @@ public class MaxConcurrentStreamsTest extends AbstractTest
         int total = parallelism * runs * iterations;
         CountDownLatch latch = new CountDownLatch(total);
         Queue<Result> failures = new ConcurrentLinkedQueue<>();
-        ForkJoinPool pool = new ForkJoinPool();
+        ForkJoinPool pool = new ForkJoinPool(parallelism);
         pool.submit(() -> IntStream.range(0, parallelism).parallel().forEach(i ->
             IntStream.range(0, runs).forEach(j ->
             {
